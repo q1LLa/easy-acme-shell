@@ -1,1 +1,2 @@
-curl -fsSL https://raw.githubusercontent.com/ТВОЙ_НИК/ИМЯ_РЕПО/main/setup.sh | bash
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/ТВОЙ_НИК/ИМЯ_РЕПО/main/setup.sh | bash)
