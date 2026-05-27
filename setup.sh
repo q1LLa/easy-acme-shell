@@ -3,19 +3,19 @@
 # Выход при любой ошибке
 set -e
 
-# Перенаправляем ввод с телетайпа (/dev/tty), чтобы read работал при запуске через curl | bash
+# Перенаправляем ввод на терминал, чтобы read работал внутри curl | bash
 exec < /dev/tty
 
 echo "=========================================="
 echo "   Настройка параметров сертификата       "
 echo "=========================================="
 
-# Запрос домена с проверкой на пустоту
+# Запрос домена
 while [ -z "$DOMAIN" ]; do
     read -p "Введите ваш домен (например, vpn.domain.com): " DOMAIN
 done
 
-# Запрос почты с проверкой на пустоту
+# Запрос почты
 while [ -z "$EMAIL" ]; do
     read -p "Введите ваш email для уведомлений: " EMAIL
 done
@@ -29,11 +29,11 @@ echo "--- Установка dependencies ---"
 sudo apt update
 sudo apt install -y curl socat
 
-# 2. Качаем и ставим acme.sh
+# 2. Качаем и ставим acme.sh с ПРАВИЛЬНЫМ email
 echo "--- Установка acme.sh ---"
 curl https://get.acme.sh | sh -s email="$EMAIL"
 
-# Настраиваем окружение внутри скрипта
+# Настраиваем окружение
 export LE_CONFIG_HOME="$HOME/.acme.sh"
 
 # 3. Переключаем дефолтный CA на Let's Encrypt
