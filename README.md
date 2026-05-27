@@ -1,2 +1,2 @@
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/q1LLa/easy-acme-shell/main/setup.sh)
+bash <(curl -fsSL "https://raw.githubusercontent.com/q1LLa/easy-acme-shell/main/setup.sh?update"))
